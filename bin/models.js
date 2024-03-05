@@ -47,13 +47,13 @@ const ${capitalize(name)} = sequelize.define(
     },
 ${fieldsContent}
   },
-  {
-    indexes: [
-      {
-        fields: [/* You can add here the fields related to a field in an other model (associations) */],
-      },
-    ],
-  }
+  //{
+    // indexes: [
+      // {
+        // fields: [/* You can add here the fields related to a field in an other model (associations) */],
+      // },
+    // ],
+  // }
 );
 
 module.exports = ${capitalize(name)};`;

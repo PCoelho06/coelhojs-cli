@@ -27,7 +27,7 @@ module.exports = { ${controllerName} };
   newCrudController: function (name) {
     modelName = capitalize(name);
     controllerName = `${capitalize(name)}Controller`;
-    return `const { AbstractController } = require("coelhojs-core");
+    return `const { AbstractController, models } = require("coelhojs-core");
 
 const { ${modelName} } = models;
 

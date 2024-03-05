@@ -35,7 +35,7 @@ function newModel(name, fields) {
   `;
   });
 
-  return `const { sequelize, DataTypes } = require("coelhojs");
+  return `const { sequelize, DataTypes } = require("coelhojs-core");
 
 const ${capitalize(name)} = sequelize.define(
   "${capitalize(name)}",

@@ -15,7 +15,7 @@ const controllersDir = path.join(process.cwd(), "controllers");
 const modelsDir = path.join(process.cwd(), "models");
 
 program
-  .name("coelhojs")
+  .name("coelho")
   .description("CLI for CoelhoJs framework")
   .version("0.0.1", "-v, -V, --version");
 

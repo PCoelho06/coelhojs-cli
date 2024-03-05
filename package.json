@@ -1,10 +1,10 @@
 {
   "name": "coelhojs-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI for CoelhoJs framework",
   "main": "index.js",
   "bin": {
-    "coelhojs": "bin/index.js"
+    "coelho": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

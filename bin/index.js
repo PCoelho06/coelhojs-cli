@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
+const clc = require("cli-color");
 
 const inquirer = require("inquirer");
 const { Command } = require("commander");
@@ -49,7 +50,14 @@ program
 
     fs.writeFile(newControllerPath, content, function (err) {
       if (err) throw err;
-      console.log(`Created: controllers/${name}.controller.js`);
+      console.log(clc.green("Created") + `: controllers/${name}.controller.js`);
+      if (options.crud) {
+        console.log(
+          clc.xterm(214)(`\nDon't forget to add`) +
+            ` "API /v1/${name}": {action: "${name}Controller", middlewares: []}` +
+            clc.xterm(214)(` to the routes/api.route.js file.`)
+        );
+      }
     });
   });
 
@@ -88,11 +96,6 @@ program
         if (answers.fieldname == "") {
           newField = false;
         } else {
-          // fields.push({
-          //   fieldname: answers.fieldname,
-          //   fieldtype: answers.fieldtype,
-          //   nullable: answers.nullable,
-          // });
           fields.push(answers);
         }
       });
@@ -102,7 +105,7 @@ program
     // Create the new model
     fs.writeFile(newModelPath, newModel(name, fields), function (err) {
       if (err) throw err;
-      console.log(`Created: models/${name}.model.js`);
+      console.log(clc.green("Created") + `: models/${name}.model.js`);
     });
 
     // Create the new controller
@@ -112,7 +115,9 @@ program
       }
       fs.writeFile(newControllerPath, newCrudController(name), function (err) {
         if (err) throw err;
-        console.log(`Created: controllers/${name}.controller.js`);
+        console.log(
+          clc.green("Created") + `: controllers/${name}.controller.js`
+        );
       });
     }
   });

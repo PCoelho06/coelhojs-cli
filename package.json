@@ -12,6 +12,7 @@
   "author": "Pierre Coelho",
   "license": "ISC",
   "dependencies": {
+    "cli-color": "^2.0.4",
     "commander": "^12.0.0",
     "inquirer": "^8.2.6"
   }

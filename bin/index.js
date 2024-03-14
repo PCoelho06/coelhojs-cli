@@ -15,9 +15,9 @@ const controllersDir = path.join(process.cwd(), "controllers");
 const modelsDir = path.join(process.cwd(), "models");
 
 program
-  .name("coelho")
+  .name("coelhojs")
   .description("CLI for CoelhoJs framework")
-  .version("0.0.1", "-v, -V, --version");
+  .version("1.0.3", "-v, -V, --version");
 
 program
   .command("new-controller")
@@ -123,14 +123,3 @@ program
   });
 
 program.parse();
-
-/*
- *
- * Liste de toutes les commandes à implémenter :
- * [ ] new-controller <name>
- *    [ ] création du controller de base (name.controller.js)
- * [ ] new-model <name>
- *    [ ] création du model avec question-réponse pour les champs
- *    [ ] option pour créer automatiquement le controller CRUD correspondant
- *
- */

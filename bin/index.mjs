@@ -7,8 +7,8 @@ import clc from "cli-color";
 import inquirer from "inquirer";
 import { Command } from "commander";
 
-import { newController, newCrudController } from "./controllers.mjs";
-import { questions, newModel } from "./models.mjs";
+import { newController, newCrudController } from "./controllers.js";
+import { questions, newModel } from "./models.js";
 
 const exec = promisify(cp.exec);
 const program = new Command();

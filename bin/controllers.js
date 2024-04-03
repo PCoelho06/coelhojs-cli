@@ -1,9 +1,8 @@
 const { capitalize } = require("../lib/utils");
 
-module.exports = {
-  newController: function (name) {
-    controllerName = `${capitalize(name)}Controller`;
-    return `const { AbstractController } = require("coelhojs-core");
+function newController(name) {
+  controllerName = `${capitalize(name)}Controller`;
+  return `const { AbstractController } = require("coelhojs-core");
 
 /*
  *
@@ -23,11 +22,12 @@ class ${controllerName} extends AbstractController {
 
 module.exports = { ${controllerName} };
         `;
-  },
-  newCrudController: function (name) {
-    modelName = capitalize(name);
-    controllerName = `${capitalize(name)}Controller`;
-    return `const { AbstractController, models } = require("coelhojs-core");
+}
+
+function newCrudController(name) {
+  modelName = capitalize(name);
+  controllerName = `${capitalize(name)}Controller`;
+  return `const { AbstractController, models } = require("coelhojs-core");
 
 const { ${modelName} } = models;
 
@@ -47,5 +47,9 @@ class ${controllerName} extends AbstractController {
 
 module.exports = { ${controllerName} };
         `;
-  },
+}
+
+module.exports = {
+  newController,
+  newCrudController,
 };

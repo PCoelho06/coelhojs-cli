@@ -7,8 +7,8 @@ import clc from "cli-color";
 import inquirer from "inquirer";
 import { Command } from "commander";
 
-import { newController, newCrudController } from "./controllers";
-import { questions, newModel } from "./models";
+import { newController, newCrudController } from "./controllers.js";
+import { questions, newModel } from "./models.js";
 
 const exec = promisify(cp.exec);
 const program = new Command();
@@ -20,7 +20,7 @@ const modelsDir = path.join(process.cwd(), "models");
 program
   .name("coelhojs")
   .description("CLI for CoelhoJs framework")
-  .version("1.0.10", "-v, -V, --version");
+  .version("1.0.11", "-v, -V, --version");
 
 program
   .command("new-app")

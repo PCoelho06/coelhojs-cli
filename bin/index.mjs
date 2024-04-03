@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-const util = require("util");
-const cp = require("child_process").cp;
+import { promisify } from "util";
+import cp from "child_process";
+import fs, { existsSync, mkdirSync } from "fs";
+import path from "path";
+import clc from "cli-color";
 
-const fs = require("fs");
-const path = require("path");
-const clc = require("cli-color");
-const exec = util.promisify(cp.exec);
+const exec = promisify(cp.exec);
 
 const inquirer = require("inquirer");
 const { Command } = require("commander");
@@ -21,7 +21,7 @@ const modelsDir = path.join(process.cwd(), "models");
 program
   .name("coelhojs")
   .description("CLI for CoelhoJs framework")
-  .version("1.0.0", "-v, -V, --version");
+  .version("1.0.9", "-v, -V, --version");
 
 program
   .command("new-app")

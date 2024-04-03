@@ -1,10 +1,9 @@
-#!/usr/bin/env node
-import { promisify } from "util";
+const util = require("util");
 
 const fs = require("fs");
 const path = require("path");
 const clc = require("cli-color");
-const exec = promisify(cp.exec);
+const exec = util.promisify(cp.exec);
 
 const inquirer = require("inquirer");
 const { Command } = require("commander");

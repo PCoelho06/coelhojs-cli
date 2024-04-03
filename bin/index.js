@@ -1,7 +1,10 @@
 #!/usr/bin/env node
+import { promisify } from "util";
+
 const fs = require("fs");
 const path = require("path");
 const clc = require("cli-color");
+const exec = promisify(cp.exec);
 
 const inquirer = require("inquirer");
 const { Command } = require("commander");
@@ -18,6 +21,24 @@ program
   .name("coelhojs")
   .description("CLI for CoelhoJs framework")
   .version("1.0.0", "-v, -V, --version");
+
+program
+  .command("new-app")
+  .description("Create a new CoelhoJs app")
+  .argument("<name>", "name of the new app to create")
+  .action((name) => {
+    if (fs.existsSync(name)) {
+      console.log(
+        "🚨" +
+          clc.red.bold("Oops :") +
+          clc.red(
+            `The folder ${name} already exists in the current directory, please give your new app another name.`
+          )
+      );
+      process.exit(1);
+    }
+    exec(`npx new-coelhojs-app ${name}`);
+  });
 
 program
   .command("new-controller")

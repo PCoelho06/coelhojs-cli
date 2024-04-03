@@ -4,16 +4,15 @@ import cp from "child_process";
 import fs, { existsSync, mkdirSync } from "fs";
 import path from "path";
 import clc from "cli-color";
+import inquirer from "inquirer";
+import { Command } from "commander";
+
+import { newController, newCrudController } from "./controllers";
+import { questions, newModel } from "./models";
 
 const exec = promisify(cp.exec);
-
-const inquirer = require("inquirer");
-const { Command } = require("commander");
 const program = new Command();
 const prompt = inquirer.prompt;
-
-const { newController, newCrudController } = require("./controllers");
-const { questions, newModel } = require("./models");
 
 const controllersDir = path.join(process.cwd(), "controllers");
 const modelsDir = path.join(process.cwd(), "models");
@@ -21,7 +20,7 @@ const modelsDir = path.join(process.cwd(), "models");
 program
   .name("coelhojs")
   .description("CLI for CoelhoJs framework")
-  .version("1.0.9", "-v, -V, --version");
+  .version("1.0.10", "-v, -V, --version");
 
 program
   .command("new-app")

@@ -1,6 +1,6 @@
 {
   "name": "coelhojs-cli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "CLI for CoelhoJs framework",
   "main": "index.js",
   "bin": {

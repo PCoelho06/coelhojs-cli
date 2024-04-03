@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const util = require("util");
+const cp = require("child_process").cp;
 
 const fs = require("fs");
 const path = require("path");

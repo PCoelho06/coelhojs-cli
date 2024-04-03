@@ -6,7 +6,7 @@ function newController(name) {
 
 /*
  *
- * If you need to call an CRUD controller to fetch some data from a database :
+ * If you need to call a CRUD controller to fetch some data from a database :
  * - add the controllers requirement : replace the first line with "const { AbstractController, controllers } = require("coelhojs-core");"
  * - declare your controller : const { <nameController> } = controllers;
  *
